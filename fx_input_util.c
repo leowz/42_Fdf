@@ -6,7 +6,7 @@
 /*   By: zweng <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 19:16:05 by zweng             #+#    #+#             */
-/*   Updated: 2018/02/23 15:48:13 by zweng            ###   ########.fr       */
+/*   Updated: 2018/02/23 20:13:21 by zweng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,7 @@ int			pf_atoi(const char *str)
 	if (!str || !(*str))
 		return (COLOR_BASE);
 	if (ft_strstr(str, "0X") || ft_strstr(str, "0x"))
-	{
 		return (ft_atoi_hex(str));
-	}
 	else
 		return (ft_atoi(str));
 }
@@ -61,13 +59,9 @@ t_vector	fx_get_vector(int i, int j, char *str)
 	ret.y = (double)i;
 	ret.z = (double)ft_atoi(str);
 	if (str && ft_strchr(str, ','))
-	{
 		ret.color = pf_atoi(ft_strchr(str, ',') + 1);
-	}
 	else
-	{
 		ret.color = COLOR_BASE;
-	}
 	return (ret);
 }
 

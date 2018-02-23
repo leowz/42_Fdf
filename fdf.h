@@ -6,7 +6,7 @@
 /*   By: zweng <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 14:11:11 by zweng             #+#    #+#             */
-/*   Updated: 2018/02/23 15:23:20 by zweng            ###   ########.fr       */
+/*   Updated: 2018/02/23 19:15:33 by zweng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ typedef struct	s_mlx_data
 
 int				fx_get_input(t_map *map, int fd);
 int				fx_tablen(void **tab);
+int				fx_check_z(char *line);
+int				fx_check_color(char	*line, char *ptr);
 int				fx_realloc_map(t_map *map);
 t_vector		fx_get_vector(int i, int j, char *str);
 t_vector		fx_vector_zero();
