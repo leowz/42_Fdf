@@ -6,7 +6,7 @@
 /*   By: zweng <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 14:12:24 by zweng             #+#    #+#             */
-/*   Updated: 2018/02/23 14:03:41 by zweng            ###   ########.fr       */
+/*   Updated: 2018/02/23 15:39:40 by zweng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int		main(int ac, char **av)
 	}
 	else
 		ft_putstr("INPUT ERROR!\n");
-		return (1);
+	return (1);
 	pf_prep_end(&map, fd);
 	return (0);
 }

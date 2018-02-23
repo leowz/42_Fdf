@@ -6,11 +6,11 @@
 /*   By: zweng <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/13 19:23:04 by zweng             #+#    #+#             */
-/*   Updated: 2018/02/23 15:18:34 by zweng            ###   ########.fr       */
+/*   Updated: 2018/02/23 15:30:02 by zweng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	FT_MLX_H
+#ifndef FT_MLX_H
 # define FT_MLX_H
 
 # include "mlx.h"
@@ -57,12 +57,14 @@ typedef struct	s_vector
 }				t_vector;
 
 /*
- *	img_ptr		: the image pointer created by mlx_new_image
- *	buf_ptr		: the address represents the begining of the memory area for image
- *	size_line	: number of bytes used to store one line of image in memory
- *	bpp			: bytes per pixel, number of bytes needed to represent a pixel color
- *	endian		: little endian(endian == 0); big endian(endian == 1) 
- */
+**	img_ptr		: the image pointer created by mlx_new_image
+**	buf_ptr		: the address represents the begining of the memory area for
+**				image
+**	size_line	: number of bytes used to store one line of image in memory
+**	bpp			: bytes per pixel, number of bytes needed to represent a pixel
+**					color
+**	endian		: little endian(endian == 0); big endian(endian == 1)
+*/
 typedef struct	s_image
 {
 	void		*img_ptr;

@@ -6,13 +6,13 @@
 /*   By: zweng <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 17:19:41 by zweng             #+#    #+#             */
-/*   Updated: 2018/02/23 15:18:37 by zweng            ###   ########.fr       */
+/*   Updated: 2018/02/23 15:46:25 by zweng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	pf_del(char **line, char ***c_tab)
+static void	pf_del(char **line, char ***c_tab)
 {
 	int		i;
 
@@ -34,14 +34,10 @@ static int	pf_convert_line(t_map *map, char **c_tab, int index)
 
 	i = 0;
 	if (!(size = fx_tablen((void **)c_tab)) || (map->width != 0 &&
-		map->width < size))
+		map->width < size) || !(row = ft_memalloc(sizeof(t_vector) * (size))))
 		return (0);
 	if (map->width == 0)
 		map->width = size;
-	if (!(row = ft_memalloc(sizeof(t_vector) * (size))))
-	{
-		return (0);
-	}
 	while (i < map->width)
 	{
 		if (i < size)

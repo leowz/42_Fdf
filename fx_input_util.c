@@ -6,13 +6,13 @@
 /*   By: zweng <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 19:16:05 by zweng             #+#    #+#             */
-/*   Updated: 2018/02/23 15:18:35 by zweng            ###   ########.fr       */
+/*   Updated: 2018/02/23 15:48:13 by zweng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int		fx_tablen(void **tab)
+int			fx_tablen(void **tab)
 {
 	int		i;
 
@@ -22,10 +22,10 @@ int		fx_tablen(void **tab)
 	return (i);
 }
 
-int		fx_realloc_map(t_map *map)
+int			fx_realloc_map(t_map *map)
 {
 	t_vector	**vec;
-	int		i;
+	int			i;
 
 	i = 0;
 	if (!(vec = ft_memalloc(sizeof(t_vector *) * map->height * 2)))
@@ -60,7 +60,7 @@ t_vector	fx_get_vector(int i, int j, char *str)
 	ret.x = (double)j;
 	ret.y = (double)i;
 	ret.z = (double)ft_atoi(str);
-	if(str && ft_strchr(str, ','))
+	if (str && ft_strchr(str, ','))
 	{
 		ret.color = pf_atoi(ft_strchr(str, ',') + 1);
 	}
@@ -74,7 +74,7 @@ t_vector	fx_get_vector(int i, int j, char *str)
 t_vector	fx_vector_zero(int i, int j)
 {
 	t_vector	ret;
-	
+
 	ft_bzero(&ret, sizeof(t_vector));
 	ret.x = (double)j;
 	ret.y = (double)i;

@@ -6,7 +6,7 @@
 /*   By: zweng <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 16:50:57 by zweng             #+#    #+#             */
-/*   Updated: 2018/02/23 15:18:41 by zweng            ###   ########.fr       */
+/*   Updated: 2018/02/23 15:42:01 by zweng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ void	fx_draw(t_mlx_data *mlx)
 	mlx->image = ft_imgnew(mlx->mlx_ptr, WIN_W, WIN_H);
 	mlx->cam = fx_init_cam(mlx->map);
 	fx_render(mlx);
-	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 10, 10, COLOR_WHITE, USAGE_STRING);
+	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 10, 10,
+			COLOR_WHITE, USAGE_STRING);
 	mlx_key_hook(mlx->win_ptr, hook_key, mlx);
 	mlx_hook(mlx->win_ptr, 4, 0, hook_mousedown, mlx);
 	mlx_hook(mlx->win_ptr, 5, 0, hook_mouseup, mlx);

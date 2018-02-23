@@ -6,7 +6,7 @@
 /*   By: zweng <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/22 15:16:34 by zweng             #+#    #+#             */
-/*   Updated: 2018/02/23 14:51:39 by zweng            ###   ########.fr       */
+/*   Updated: 2018/02/23 15:42:26 by zweng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int		hook_key(int key, t_mlx_data *mlx)
 {
 	if (key == ESC_KEY)
-		exit(0);	
+		exit(0);
 	if (key == R_KEY)
 	{
 		mlx->cam = fx_init_cam(mlx->map);

@@ -6,7 +6,7 @@
 /*   By: zweng <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 17:37:39 by zweng             #+#    #+#             */
-/*   Updated: 2018/02/23 15:07:28 by zweng            ###   ########.fr       */
+/*   Updated: 2018/02/23 15:42:56 by zweng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		hook_mousedown(int button, int x, int y, t_mlx_data *mlx)
 	{
 		mlx->cam.scale += 2;
 		if (mlx->cam.scale > (MAX_SCALE * mlx->cam.def_scale))
-				mlx->cam.scale = (MAX_SCALE * mlx->cam.def_scale);
+			mlx->cam.scale = (MAX_SCALE * mlx->cam.def_scale);
 		fx_render(mlx);
 	}
 	if (button == SCROLLDOWN_KEY)
@@ -70,5 +70,5 @@ int		hook_mousemove(int x, int y, t_mlx_data *mlx)
 		mlx->cam.offsety -= (mlx->mouse.lasty - y);
 		fx_render(mlx);
 	}
-	return (0);	
+	return (0);
 }

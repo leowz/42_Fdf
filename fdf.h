@@ -6,11 +6,11 @@
 /*   By: zweng <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 14:11:11 by zweng             #+#    #+#             */
-/*   Updated: 2018/02/23 15:18:34 by zweng            ###   ########.fr       */
+/*   Updated: 2018/02/23 15:23:20 by zweng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	FDF_H
+#ifndef FDF_H
 # define FDF_H
 
 # include <fcntl.h>
@@ -79,9 +79,5 @@ int				hook_mousemove(int x, int y, t_mlx_data *mlx);
 int				hook_mousedown(int button, int x, int y, t_mlx_data *mlx);
 int				hook_mouseup(int button, int x, int y, t_mlx_data *mlx);
 int				hook_key(int key, t_mlx_data *mlx);
-void	ft_put_image_line(t_vector start, t_vector end, t_image *img);
-
-//-------------------------debug------------
-void 	print_map(t_map *map);
-void	p_vector(t_vector v);
+void			ft_put_image_line(t_vector start, t_vector end, t_image *img);
 #endif

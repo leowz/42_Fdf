@@ -6,7 +6,7 @@
 /*   By: zweng <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 21:11:11 by zweng             #+#    #+#             */
-/*   Updated: 2018/02/23 14:40:57 by zweng            ###   ########.fr       */
+/*   Updated: 2018/02/23 15:48:50 by zweng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	fx_render(t_mlx_data *mlx)
 {
 	int			i;
 	int			j;
-	t_vector 	**v;
+	t_vector	**v;
 
 	i = 0;
 	v = mlx->map.vectors;
@@ -70,5 +70,6 @@ void	fx_render(t_mlx_data *mlx)
 		}
 		i++;
 	}
-	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->image.img_ptr, 0, 0);
+	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr,
+			mlx->image.img_ptr, 0, 0);
 }

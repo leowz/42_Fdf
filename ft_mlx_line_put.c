@@ -6,15 +6,15 @@
 /*   By: zweng <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/13 19:35:47 by zweng             #+#    #+#             */
-/*   Updated: 2018/02/23 13:44:28 by zweng            ###   ########.fr       */
+/*   Updated: 2018/02/23 15:41:41 by zweng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	pf_init(t_vector *d, t_vector *s, t_vector start, t_vector end)
+static void	pf_init(t_vector *d, t_vector *s, t_vector start, t_vector end)
 {
-	d->x = ft_abs(end.x - start.x); 
+	d->x = ft_abs(end.x - start.x);
 	d->y = -ft_abs(end.y - start.y);
 	s->x = start.x < end.x ? 1 : -1;
 	if (start.x == end.x)
@@ -27,13 +27,13 @@ void	pf_init(t_vector *d, t_vector *s, t_vector start, t_vector end)
 		s->color = 0;
 }
 
-void adj_x(int *err, t_vector *start, t_vector d, t_vector s)
+static void	adj_x(int *err, t_vector *start, t_vector d, t_vector s)
 {
 	*err += d.y;
 	start->x += s.x;
 }
 
-void adj_y(int *err, t_vector *start, t_vector d, t_vector s)
+static void	adj_y(int *err, t_vector *start, t_vector d, t_vector s)
 {
 	*err += d.x;
 	start->y += s.y;
