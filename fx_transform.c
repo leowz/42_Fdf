@@ -6,11 +6,12 @@
 /*   By: zweng <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 23:16:29 by zweng             #+#    #+#             */
-/*   Updated: 2018/02/21 18:59:51 by zweng            ###   ########.fr       */
+/*   Updated: 2018/02/23 15:12:02 by zweng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+#include <math.h>
 
 /* 	[x, y](-z, y)	| cos	sin|
  *					| -sin	cos|
@@ -45,15 +46,9 @@ t_vector	fx_transform(t_vector v, t_cam cam, t_map map)
 	ret.y = v.y - (map.height - 1) / 2.0;
 	ret.z = v.z - (map.depth_max - map.depth_min) / 2.0;
 	ret.color = v.color;
-//	printf("before rotate ");
-//	p_vector(ret);
 	pf_rotate(&ret, cam);
-//	printf("after rotate ");
-//	p_vector(ret);
 	ret.x *= cam.scale;
 	ret.y *= cam.scale;
-//	printf("after scale ");
-//	p_vector(ret);
 	ret.x += cam.offsetx;
 	ret.y += cam.offsety;
 	return (ret);

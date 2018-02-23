@@ -6,23 +6,22 @@
 /*   By: zweng <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 14:11:11 by zweng             #+#    #+#             */
-/*   Updated: 2018/02/21 18:59:52 by zweng            ###   ########.fr       */
+/*   Updated: 2018/02/23 15:18:34 by zweng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef	FDF_H
 # define FDF_H
 
-# include <math.h>
 # include <fcntl.h>
 # include "ft_mlx.h"
 # include "libft.h"
-# include <stdio.h>
 
 # define INIT_SIZE_H	(5)
 # define TITLE			("FDF TITLE")
-# define S_LEN			(20)
-# define DEFAULT_SCALE	(30)
+# define RATIO			(4 / 5)
+# define MAX_SCALE		(5)
+# define USAGE_STRING	("Usage: esc exit, r reset, c color mode.")
 
 typedef struct	s_cam
 {
@@ -32,6 +31,8 @@ typedef struct	s_cam
 	double		y;
 	double		z;
 	int			scale;
+	int			c_mode;
+	int			def_scale;
 }				t_cam;
 
 typedef struct	s_map
@@ -66,15 +67,19 @@ int				fx_get_input(t_map *map, int fd);
 int				fx_tablen(void **tab);
 int				fx_realloc_map(t_map *map);
 t_vector		fx_get_vector(int i, int j, char *str);
+t_vector		fx_vector_zero();
 int				ft_atoi_hex(const char *str);
 void			fx_draw(t_mlx_data *mlx);
 void			fx_render(t_mlx_data *mlx);
 void			ft_mlx_image_line_put(t_vector start,
 				t_vector end, t_image *img);
 t_vector		fx_transform(t_vector v, t_cam cam, t_map map);
-int		hook_mousemove(int x, int y, t_mlx_data *mlx);
-int		hook_mousedown(int button, int x, int y, t_mouse *mouse);
-int		hook_mouseup(int button, int x, int y, t_mouse *mouse);
+t_cam			fx_init_cam(t_map map);
+int				hook_mousemove(int x, int y, t_mlx_data *mlx);
+int				hook_mousedown(int button, int x, int y, t_mlx_data *mlx);
+int				hook_mouseup(int button, int x, int y, t_mlx_data *mlx);
+int				hook_key(int key, t_mlx_data *mlx);
+void	ft_put_image_line(t_vector start, t_vector end, t_image *img);
 
 //-------------------------debug------------
 void 	print_map(t_map *map);

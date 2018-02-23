@@ -6,7 +6,7 @@
 #    By: zweng <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 18:11:43 by zweng             #+#    #+#              #
-#    Updated: 2018/02/21 18:59:47 by zweng            ###   ########.fr        #
+#    Updated: 2018/02/23 15:19:32 by zweng            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,8 @@ MLXHEADERDIR = /usr/local/include
 LIB = libft.a
 
 SRCS = fdf.c fx_input.c fx_input_util.c fx_draw.c fx_render.c fx_transform.c \
-	   fx_hook_mouse.c\
+	   fx_hook_mouse.c fx_hook_key.c\
 	   ft_mlx_color.c ft_mlx_line_put.c	ft_atoi_hex.c ft_img_pixel_put.c ft_imgnew.c\
-	   helper.c
 
 OBJS = $(patsubst %.c, %.o, $(SRCS))
 

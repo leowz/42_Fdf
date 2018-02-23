@@ -6,7 +6,7 @@
 /*   By: zweng <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 19:16:05 by zweng             #+#    #+#             */
-/*   Updated: 2018/02/21 18:59:50 by zweng            ###   ########.fr       */
+/*   Updated: 2018/02/23 15:18:35 by zweng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,7 @@ int		fx_realloc_map(t_map *map)
 
 	i = 0;
 	if (!(vec = ft_memalloc(sizeof(t_vector *) * map->height * 2)))
-	{
-//	printf("realloc fail\n");
 		return (0);
-	}
 	while (i < map->height)
 	{
 		vec[i] = map->vectors[i];
@@ -71,5 +68,17 @@ t_vector	fx_get_vector(int i, int j, char *str)
 	{
 		ret.color = COLOR_BASE;
 	}
+	return (ret);
+}
+
+t_vector	fx_vector_zero(int i, int j)
+{
+	t_vector	ret;
+	
+	ft_bzero(&ret, sizeof(t_vector));
+	ret.x = (double)j;
+	ret.y = (double)i;
+	ret.z = 0;
+	ret.color = COLOR_WHITE;
 	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: zweng <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 14:12:24 by zweng             #+#    #+#             */
-/*   Updated: 2018/02/20 23:45:08 by zweng            ###   ########.fr       */
+/*   Updated: 2018/02/23 14:03:41 by zweng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,19 +51,14 @@ int		main(int ac, char **av)
 	}
 	ft_bzero(&map, sizeof(t_map));
 	ft_bzero(&mlx, sizeof(t_mlx_data));
-//	printf("before get input\n");
 	if (fx_get_input(&map, fd))
 	{
 		mlx.map = map;
-		//print_map(&map);
 		fx_draw(&mlx);
 	}
 	else
-	{
 		ft_putstr("INPUT ERROR!\n");
 		return (1);
-	}
 	pf_prep_end(&map, fd);
-//	sleep(1000);
 	return (0);
 }
