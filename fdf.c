@@ -6,12 +6,11 @@
 /*   By: zweng <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 14:12:24 by zweng             #+#    #+#             */
-/*   Updated: 2018/02/23 20:13:29 by zweng            ###   ########.fr       */
+/*   Updated: 2018/02/25 15:10:06 by zweng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include <stdio.h>
 
 void	pf_prep_end(t_map *map, int fd)
 {

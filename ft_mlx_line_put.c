@@ -6,13 +6,14 @@
 /*   By: zweng <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/13 19:35:47 by zweng             #+#    #+#             */
-/*   Updated: 2018/02/23 15:41:41 by zweng            ###   ########.fr       */
+/*   Updated: 2018/02/25 15:13:26 by zweng            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+#include <math.h>
 
-static void	pf_init(t_vector *d, t_vector *s, t_vector start, t_vector end)
+static void	pf_init(t_point *d, t_point *s, t_point start, t_point end)
 {
 	d->x = ft_abs(end.x - start.x);
 	d->y = -ft_abs(end.y - start.y);
@@ -22,37 +23,33 @@ static void	pf_init(t_vector *d, t_vector *s, t_vector start, t_vector end)
 	s->y = start.y < end.y ? 1 : -1;
 	if (start.y == end.y)
 		s->y = 0;
-	s->color = start.color < end.color ? 1 : -1;
-	if (start.color == end.color)
-		s->color = 0;
 }
 
-static void	adj_x(int *err, t_vector *start, t_vector d, t_vector s)
+static void	adj_x(int *err, t_point *start, t_point d, t_point s)
 {
 	*err += d.y;
 	start->x += s.x;
 }
 
-static void	adj_y(int *err, t_vector *start, t_vector d, t_vector s)
+static void	adj_y(int *err, t_point *start, t_point d, t_point s)
 {
 	*err += d.x;
 	start->y += s.y;
 }
 
-void		ft_mlx_image_line_put(t_vector start,
-			t_vector end, t_image *img)
+static void	bres(t_point start, t_point end, int color, t_image *img)
 {
-	t_vector	d;
-	t_vector	s;
+	t_point		d;
+	t_point		s;
 	int			err;
 	int			e2;
 
 	pf_init(&d, &s, start, end);
-	err = (int)(d.x + d.y);
+	err = d.x + d.y;
 	while (1)
 	{
-		ft_img_pixel_put(img, (int)start.x, (int)start.y, end.color);
-		if (ft_abs(start.x - end.x) < 1 && ft_abs(start.y - end.y) < 1)
+		ft_img_pixel_put(img, start.x, start.y, color);
+		if (start.x == end.x && start.y == end.y)
 			break ;
 		e2 = 2 * err;
 		if (e2 >= d.y)
@@ -60,4 +57,17 @@ void		ft_mlx_image_line_put(t_vector start,
 		if (e2 <= d.x)
 			adj_y(&err, &start, d, s);
 	}
+}
+
+void		ft_mlx_image_line_put(t_vector start,
+			t_vector end, t_image *img)
+{
+	t_point p1;
+	t_point p2;
+
+	p1.x = round(start.x);
+	p1.y = round(start.y);
+	p2.x = round(end.x);
+	p2.y = round(end.y);
+	bres(p1, p2, end.color, img);
 }
