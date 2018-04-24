@@ -6,7 +6,7 @@
 #    By: zweng <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 18:11:43 by zweng             #+#    #+#              #
-#    Updated: 2018/02/23 19:14:51 by zweng            ###   ########.fr        #
+#    Updated: 2018/04/15 15:04:37 by zweng            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@ NAME = fdf
 
 LIBDIR = libft
 
-MLXDIR = /usr/local/lib/
+MLXDIR = minilibx
 
-MLXHEADERDIR = /usr/local/include
+MLXHEADERDIR = minilibx
 
 LIB = libft.a
 
@@ -28,11 +28,11 @@ SRCS = fdf.c fx_input.c fx_input_util.c fx_draw.c fx_render.c fx_transform.c \
 
 OBJS = $(patsubst %.c, %.o, $(SRCS))
 
-HEADER_DIR = libft
+HEADER_DIR = libft/includes
 
 HEADER = fdf.h ft_mlx.h
 
-HEADERSP = -I.-I$(HEADER_DIR) -I$(MLXHEADERDIR)
+HEADERSP = -I. -I$(HEADER_DIR) -I$(MLXHEADERDIR)
 
 LIBSP = -L$(LIBDIR)/ -L$(MLXDIR)
 
@@ -63,7 +63,7 @@ $(LIBDIR)/$(LIB):
 
 
 %.o: %.c $(HEADER)
-	@$(CC) -c $(CFLAGS) $< -I. -I$(HEADER_DIR) -o $@
+	@$(CC) -c $(CFLAGS) $(HEADERSP) $< -o $@
 	@printf $(GREEN)"\r\E[K$(NAME) Finish compiling %s\n"$(EOC) $<
 
 clean:
