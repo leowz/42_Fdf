@@ -30,14 +30,18 @@ the matrix represents the altitude of each point in the landscape.
 Here are some examples to demonstrate the basic functionalities of this application.
 
 The first map shows a 42 icon.
+
 ![42](/img/42.gif)
 
 The seconde map is a polygon shape.
+
 ![polygon](/img/polygon.gif)
 
 And this las image is a map of France. It is a big map with a lot of details.
 This shows that this app can be quit useful and interesting with correct maps.
+
 ![france](/img/france.jpg)
+
 ## Grades
 
 Libft: 100/100

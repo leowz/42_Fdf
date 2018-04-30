@@ -6,7 +6,7 @@
 #    By: zweng <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 18:11:43 by zweng             #+#    #+#              #
-#    Updated: 2018/04/15 15:04:37 by zweng            ###   ########.fr        #
+#    Updated: 2018/04/30 14:25:43 by zweng            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,13 @@ NAME = fdf
 
 LIBDIR = libft
 
+LIB = libft.a
+
 MLXDIR = minilibx
 
 MLXHEADERDIR = minilibx
 
-LIB = libft.a
+MLXLIB = libmlx.a
 
 SRCS = fdf.c fx_input.c fx_input_util.c fx_draw.c fx_render.c fx_transform.c \
 	   fx_hook_mouse.c fx_hook_key.c fx_input_check.c\
@@ -54,13 +56,15 @@ EOC:="\033[0;0m"
 
 all: $(NAME)
 
-$(NAME): $(LIBDIR)/$(LIB) $(OBJS)
+$(NAME): $(LIBDIR)/$(LIB) $(MLXDIR)/$(MLXLIB) $(OBJS)
 	@$(CC) $(OBJS) $(HEADERSP) $(LIBSP) $(LIBS) $(FRAMEWORK) -o $@
 	@printf $(GREEN)"  $(NAME) Finish linking\n"$(EOC)
 
 $(LIBDIR)/$(LIB):
 	@make -C $(LIBDIR)/ fclean && make -C $(LIBDIR)/
 
+$(MLXDIR)/$(MLXLIB):
+	@make -C $(MLXDIR)/ clean && make -C $(MLXDIR)/
 
 %.o: %.c $(HEADER)
 	@$(CC) -c $(CFLAGS) $(HEADERSP) $< -o $@
@@ -70,6 +74,7 @@ clean:
 	@/bin/rm -f $(OBJS) 
 	@printf $(GREEN)"$(NAME) clean\n"$(EOC)
 	@make -C $(LIBDIR)/ clean
+	@make -C $(MLXDIR)/ clean
 
 fclean: clean
 	@/bin/rm -f $(NAME)
